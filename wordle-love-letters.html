@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff6b9d" />
+  <title>JINEN AND VIDHI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ================================
+       Wordle Love Letters — Styles
+       ================================ */
+
+    :root {
+      --pink-50: #fff0f6;
+      --pink-100: #ffd6e7;
+      --pink-200: #ffb3d1;
+      --pink-300: #ff7eb6;
+      --pink-400: #ff5fa2;
+      --pink-500: #ff3d8a;
+      --pink-600: #e63478;
+      --purple-300: #c8a2ff;
+      --purple-400: #a675ff;
+      --purple-500: #8a4dff;
+      --rose-300: #ffa1c3;
+      --rose-400: #ff739e;
+      --ink: #4a1f3d;
+      --ink-soft: #6b3957;
+      --shadow: 0 20px 50px rgba(255, 77, 145, 0.25);
+      --shadow-soft: 0 10px 30px rgba(170, 80, 160, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.55);
+      --glass-border: rgba(255, 255, 255, 0.7);
+      --correct: #4caf72;
+      --present: #e8b73b;
+      --absent: #a09aa3;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #ffd1e8 0%, #f3c5ff 35%, #d6b4ff 70%, #ffc0d9 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Floating background hearts */
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .float-heart {
+      position: absolute;
+      font-size: 36px;
+      color: rgba(255, 255, 255, 0.55);
+      filter: blur(0.4px);
+      animation: float 14s linear infinite;
+    }
+    .float-heart.h1 { left: 8%;  top: 110%; font-size: 28px; animation-duration: 16s; }
+    .float-heart.h2 { left: 28%; top: 110%; font-size: 44px; animation-duration: 20s; animation-delay: -3s; }
+    .float-heart.h3 { left: 48%; top: 110%; font-size: 32px; animation-duration: 18s; animation-delay: -7s; }
+    .float-heart.h4 { left: 70%; top: 110%; font-size: 50px; animation-duration: 22s; animation-delay: -11s; }
+    .float-heart.h5 { left: 90%; top: 110%; font-size: 24px; animation-duration: 15s; animation-delay: -5s; }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(0deg);   opacity: 0; }
+      10%  { opacity: 0.7; }
+      90%  { opacity: 0.7; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Header */
+    .site-header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 20px 18px;
+    }
+    .title {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      margin: 0;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      margin: 10px 0 0;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 400;
+      color: var(--ink-soft);
+    }
+
+    .heart {
+      display: inline-block;
+      color: var(--pink-500);
+      font-size: 1em;
+      line-height: 1;
+    }
+    .pulse {
+      animation: pulse 1.6s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.18); }
+    }
+
+    /* Views */
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px 60px;
+    }
+    .view {
+      display: none;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeIn 0.35s ease;
+    }
+    .view.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Progress */
+    .progress {
+      text-align: center;
+      margin: 0 auto 28px;
+      max-width: 520px;
+    }
+    .progress-text {
+      font-weight: 500;
+      color: var(--ink);
+      display: inline-block;
+      margin-bottom: 8px;
+      background: var(--glass-bg);
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+    }
+    .progress-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--pink-400), var(--purple-400), var(--pink-300));
+      background-size: 200% 100%;
+      border-radius: 999px;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 4px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 26px;
+      padding: 26px 18px;
+      min-height: 200px;
+      cursor: pointer;
+      background: var(--card-bg, linear-gradient(135deg, #ffb6d5, #d4a4ff));
+      color: #fff;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.45), transparent 60%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 28px 60px rgba(255, 77, 145, 0.35);
+    }
+    .card:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .card.locked {
+      filter: saturate(0.7) brightness(0.95);
+    }
+    .card.locked::after {
+      content: "🔒";
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 16px;
+      opacity: 0.8;
+    }
+    .card.unlocked::after {
+      content: "♥";
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 18px;
+      color: #fff;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .card .card-icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+      display: block;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    .card .card-number {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 6px;
+      opacity: 0.95;
+    }
+    .card .card-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .card.unlocked .card-label { opacity: 1; }
+    .card .card-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 26px;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.7s ease;
+    }
+    .card:hover .card-glow { transform: translateX(100%); }
+    .card.unlocked {
+      animation: glowPulse 3.5s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 20px 50px rgba(255, 77, 145, 0.25); }
+      50%      { box-shadow: 0 26px 60px rgba(255, 130, 195, 0.5); }
+    }
+
+    /* 10 unique gradient themes */
+    .gradient-1  { background: linear-gradient(135deg, #ff9ec7 0%, #c87bff 100%); }
+    .gradient-2  { background: linear-gradient(135deg, #ffb199 0%, #ff6a88 100%); }
+    .gradient-3  { background: linear-gradient(135deg, #f6a5ff 0%, #ff7eb6 100%); }
+    .gradient-4  { background: linear-gradient(135deg, #ffd1ff 0%, #b285ff 100%); }
+    .gradient-5  { background: linear-gradient(135deg, #ff7eb6 0%, #8a4dff 100%); }
+    .gradient-6  { background: linear-gradient(135deg, #ffc8a2 0%, #ff6b9d 100%); }
+    .gradient-7  { background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%); }
+    .gradient-8  { background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%); }
+    .gradient-9  { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+    .gradient-10 { background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%); }
+
+    /* Back button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px 0 18px;
+      padding: 10px 18px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+    .back-btn:hover { transform: translateX(-3px); background: rgba(255, 255, 255, 0.75); }
+    .back-btn:active { transform: translateX(-1px) scale(0.98); }
+
+    /* Game View */
+    .game-container {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 26px 22px 30px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .game-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      text-align: center;
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+    .hint-box {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px dashed rgba(255, 105, 165, 0.45);
+      border-radius: 14px;
+      padding: 10px 14px;
+      text-align: center;
+      margin: 0 auto 18px;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .hint-label {
+      font-weight: 600;
+      color: var(--pink-600);
+      margin-right: 4px;
+    }
+
+    /* Wordle board */
+    .board {
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 6px;
+      margin: 0 auto 16px;
+      max-width: 360px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+    .tile {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.6);
+      border: 2px solid rgba(180, 120, 170, 0.35);
+      border-radius: 12px;
+      transition: transform 0.15s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    .tile.filled {
+      border-color: var(--pink-400);
+      background: rgba(255, 255, 255, 0.85);
+      transform: scale(1.04);
+    }
+    .tile.correct {
+      background: var(--correct);
+      color: #fff;
+      border-color: var(--correct);
+    }
+    .tile.present {
+      background: var(--present);
+      color: #fff;
+      border-color: var(--present);
+    }
+    .tile.absent {
+      background: var(--absent);
+      color: #fff;
+      border-color: var(--absent);
+    }
+    .tile.pop { animation: pop 0.15s ease; }
+    .tile.flip { animation: flip 0.5s ease forwards; }
+    @keyframes pop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.12); }
+      100% { transform: scale(1.04); }
+    }
+    @keyframes flip {
+      0%   { transform: rotateX(0);   background: rgba(255, 255, 255, 0.85); }
+      50%  { transform: rotateX(90deg); }
+      100% { transform: rotateX(0); }
+    }
+
+    .message {
+      text-align: center;
+      min-height: 1.4em;
+      font-weight: 500;
+      color: var(--pink-600);
+      margin-bottom: 14px;
+    }
+    .message.shake { animation: shake 0.4s; }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-2px); }
+      20%, 80% { transform: translateX(4px); }
+      30%, 50%, 70% { transform: translateX(-6px); }
+      40%, 60% { transform: translateX(6px); }
+    }
+
+    /* Keyboard */
+    .keyboard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto;
+      max-width: 480px;
+    }
+    .kb-row {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      width: 100%;
+    }
+    .key {
+      flex: 1 1 0;
+      min-width: 28px;
+      height: 48px;
+      padding: 0 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(180, 120, 170, 0.3);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+      user-select: none;
+    }
+    .key:hover { background: rgba(255, 255, 255, 0.95); }
+    .key:active { transform: scale(0.95); }
+    .key.wide {
+      flex: 2.5 1 0;
+      font-size: 0.85rem;
+    }
+    .key.correct { background: var(--correct); color: #fff; border-color: var(--correct); }
+    .key.present { background: var(--present); color: #fff; border-color: var(--present); }
+    .key.absent  { background: var(--absent);  color: #fff; border-color: var(--absent); }
+
+    /* Reveal view (memory card) */
+    .memory-card {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 28px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .memory-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--card-bg, linear-gradient(135deg, rgba(255, 158, 199, 0.3), rgba(200, 123, 255, 0.3)));
+      z-index: -1;
+      opacity: 0.35;
+    }
+    .memory-photo {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #ffe1ec, #e8d5ff);
+      box-shadow: 0 14px 30px rgba(170, 80, 160, 0.25);
+    }
+    .memory-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .heart-accent {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--pink-500);
+      border-radius: 50%;
+      font-size: 22px;
+      box-shadow: 0 6px 18px rgba(255, 77, 145, 0.3);
+    }
+    .memory-content {
+      text-align: center;
+      padding: 4px 6px 6px;
+    }
+    .memory-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      color: var(--ink);
+      margin: 0 0 14px;
+      line-height: 1.25;
+    }
+    .memory-letter {
+      font-family: "Dancing Script", cursive;
+      font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--ink);
+      white-space: pre-wrap;
+      margin: 0;
+      padding: 0 4px;
+    }
+
+    @media (min-width: 720px) {
+      .memory-card {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 32px;
+      }
+      .memory-photo { aspect-ratio: 1 / 1; }
+      .memory-content { text-align: left; }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 520px) {
+      .site-header { padding: 28px 16px 12px; }
+      main { padding: 0 14px 40px; }
+      .cards-grid { gap: 14px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      .card { padding: 22px 14px; min-height: 170px; border-radius: 22px; }
+      .card .card-icon { font-size: 32px; }
+      .game-container { padding: 22px 14px 24px; border-radius: 22px; }
+      .key { height: 44px; font-size: 0.85rem; min-width: 24px; }
+      .key.wide { font-size: 0.78rem; }
+      .memory-card { padding: 20px; border-radius: 24px; }
+      .memory-photo { border-radius: 18px; }
+    }
+
+    @media (max-width: 360px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .key { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="float-heart h1">♥</span>
+    <span class="float-heart h2">♥</span>
+    <span class="float-heart h3">♥</span>
+    <span class="float-heart h4">♥</span>
+    <span class="float-heart h5">♥</span>
+  </div>
+
+  <header class="site-header">
+    <h1 class="title">
+      <span class="heart pulse" aria-hidden="true">♥</span>
+      <span>JINEN AND VIDHI</span>
+      <span class="heart pulse" aria-hidden="true">♥</span>
+    </h1>
+    <p class="subtitle">10 words, 10 memories, 1 year ❤️</p>
+  </header>
+
+  <main>
+    <section id="mainView" class="view active" aria-label="Memory cards">
+      <div class="progress">
+        <span id="progressText" class="progress-text">0 of 10 memories unlocked</span>
+        <div class="progress-bar" aria-hidden="true">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+      <div id="cardsGrid" class="cards-grid" role="list"></div>
+    </section>
+
+    <section id="gameView" class="view" aria-label="Word guessing game">
+      <button class="back-btn" onclick="closeGame()" type="button">← Back</button>
+      <div class="game-container">
+        <h2 id="gameTitle" class="game-title">Memory #</h2>
+        <div class="hint-box">
+          <span class="hint-label">Hint:</span>
+          <span id="gameHint" class="hint-text">—</span>
+        </div>
+        <div id="board" class="board" aria-label="Wordle board"></div>
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+        <div id="keyboard" class="keyboard" aria-label="On-screen keyboard"></div>
+      </div>
+    </section>
+
+    <section id="revealView" class="view" aria-label="Memory reveal">
+      <button class="back-btn" onclick="closeReveal()" type="button">← Back to all words</button>
+      <article id="memoryCard" class="memory-card gradient-1">
+        <div class="memory-photo">
+          <img id="revealPhoto" src="" alt="Memory photo" />
+          <span class="heart-accent pulse" aria-hidden="true">♥</span>
+        </div>
+        <div class="memory-content">
+          <h2 id="revealTitle" class="memory-title">Memory</h2>
+          <p id="revealLetter" class="memory-letter">Letter goes here.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+
+    // -------------------------------------------------------------------------
+    // Data (inlined so the page works standalone)
+    // -------------------------------------------------------------------------
+    var words = [
+      { id: 1,  word: "VIDHI", hint: "The love of my life 💕",          title: "Memory #1: The One I Love",         photo: "images/photo-1.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #1 — write something sweet and personal here.", color: "gradient-1"  },
+      { id: 2,  word: "LOVES", hint: "Fill in the blank: Jinen _____ Vidhi",  title: "Memory #2: What Love Means",        photo: "images/photo-2.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #2 — write something sweet and personal here.", color: "gradient-2"  },
+      { id: 3,  word: "JINEN", hint: "The luckiest guy in the world 🥰", title: "Memory #3: All About You",          photo: "images/photo-3.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #3 — write something sweet and personal here.", color: "gradient-3"  },
+      { id: 4,  word: "PINGU", hint: "The thing you can't sleep without",     title: "Memory #4: My Honey",               photo: "images/photo-4.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #4 — write something sweet and personal here.", color: "gradient-4"  },
+      { id: 5,  word: "SWEET", hint: "Just like you, always 🍬",         title: "Memory #5: Sugar and Spice",        photo: "images/photo-5.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #5 — write something sweet and personal here.", color: "gradient-5"  },
+      { id: 6,  word: "CUTIE", hint: "Vidhi is a ______",          title: "Memory #6: My Heart Is Yours",      photo: "images/photo-6.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #6 — write something sweet and personal here.", color: "gradient-6"  },
+      { id: 7,  word: "SLEEP", hint: "The only thing you love to do except me",         title: "Memory #7: A Thousand Kisses",      photo: "images/photo-7.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #7 — write something sweet and personal here.", color: "gradient-7"  },
+      { id: 8,  word: "YEARS", hint: "I'm going to love you for many many _______",  title: "Memory #8: Your Forever Lover",     photo: "images/photo-8.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #8 — write something sweet and personal here.", color: "gradient-8"  },
+      { id: 9,  word: "TEARS", hint: "A sign that someone means the world to you", title: "Memory #9: Pure Bliss",             photo: "images/photo-9.jpg",  letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #9 — write something sweet and personal here.", color: "gradient-9"  },
+      { id: 10, word: "MARRY", hint: "Our end goal",          title: "Memory #10: Struck by Cupid",       photo: "images/photo-10.jpg", letter: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This is a placeholder letter for memory #10 — write something sweet and personal here.", color: "gradient-10" }
+    ];
+
+    // -------------------------------------------------------------------------
+    // Constants
+    // -------------------------------------------------------------------------
+    var STORAGE_KEY = "wordleLoveLetters_solved";
+    var MAX_ATTEMPTS = 6;
+    var WORD_LENGTH = 5;
+
+    var QWERTY_ROWS = [
+      ["Q","W","E","R","T","Y","U","I","O","P"],
+      ["A","S","D","F","G","H","J","K","L"],
+      ["ENTER","Z","X","C","V","B","N","M","⌫"]
+    ];
+
+    // -------------------------------------------------------------------------
+    // State
+    // -------------------------------------------------------------------------
+    var solvedIds = loadSolved();
+    var currentEntry = null;
+    var guesses = [];
+    var currentRow = 0;
+    var currentCol = 0;
+    var gameState = "idle";
+
+    // -------------------------------------------------------------------------
+    // DOM helpers
+    // -------------------------------------------------------------------------
+    function $(sel) { return document.querySelector(sel); }
+
+    function showView(viewId) {
+      var views = document.querySelectorAll(".view");
+      for (var i = 0; i < views.length; i++) views[i].classList.remove("active");
+      var el = document.getElementById(viewId);
+      if (el) el.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // -------------------------------------------------------------------------
+    // Persistence
+    // -------------------------------------------------------------------------
+    function loadSolved() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return new Set();
+        var arr = JSON.parse(raw);
+        return new Set(Array.isArray(arr) ? arr : []);
+      } catch (err) {
+        return new Set();
+      }
+    }
+
+    function saveSolved() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(solvedIds)));
+      } catch (err) {}
+    }
+
+    // -------------------------------------------------------------------------
+    // Cards
+    // -------------------------------------------------------------------------
+    function renderCards() {
+      var grid = $("#cardsGrid");
+      grid.innerHTML = "";
+      words.forEach(function (entry) {
+        var isSolved = solvedIds.has(entry.id);
+        var card = document.createElement("button");
+        card.type = "button";
+        card.className = "card " + entry.color + " " + (isSolved ? "unlocked" : "locked");
+        card.setAttribute("role", "listitem");
+        card.setAttribute("aria-label", entry.title + " — " + (isSolved ? "unlocked" : "locked"));
+        card.onclick = function () { window.openGame(entry); };
+        card.innerHTML =
+          '<span class="card-glow" aria-hidden="true"></span>' +
+          '<span class="card-icon" aria-hidden="true">' + (isSolved ? "💖" : "♥") + '</span>' +
+          '<p class="card-number">' + (isSolved ? entry.word : ("Memory " + entry.id)) + '</p>' +
+          '<p class="card-label">' + (isSolved ? "Unlocked" : "Locked") + '</p>';
+        grid.appendChild(card);
+      });
+      updateProgress();
+    }
+
+    function updateProgress() {
+      var count = solvedIds.size;
+      $("#progressText").textContent = count + " of " + words.length + " memories unlocked";
+      var pct = (count / words.length) * 100;
+      $("#progressFill").style.width = pct + "%";
+    }
+
+    // -------------------------------------------------------------------------
+    // Game
+    // -------------------------------------------------------------------------
+    function resetGameState() {
+      guesses = [];
+      currentRow = 0;
+      currentCol = 0;
+      gameState = "playing";
+    }
+
+    function buildBoard() {
+      var board = $("#board");
+      board.innerHTML = "";
+      for (var r = 0; r < MAX_ATTEMPTS; r++) {
+        var row = document.createElement("div");
+        row.className = "row";
+        for (var c = 0; c < WORD_LENGTH; c++) {
+          var tile = document.createElement("div");
+          tile.className = "tile";
+          tile.dataset.row = String(r);
+          tile.dataset.col = String(c);
+          row.appendChild(tile);
+        }
+        board.appendChild(row);
+      }
+    }
+
+    function setTile(row, col, letter) {
+      var rows = $("#board").children;
+      if (!rows[row]) return;
+      var tile = rows[row].children[col];
+      if (!tile) return;
+      tile.textContent = letter;
+      if (letter) {
+        tile.classList.add("filled");
+        tile.classList.remove("pop");
+        void tile.offsetWidth;
+        tile.classList.add("pop");
+      } else {
+        tile.classList.remove("filled");
+      }
+    }
+
+    function colorTiles(row, states) {
+      var rows = $("#board").children;
+      var rowEl = rows[row];
+      if (!rowEl) return;
+      var tiles = rowEl.children;
+      for (var i = 0; i < tiles.length; i++) {
+        tiles[i].classList.add("flip");
+        (function (tile, state) {
+          setTimeout(function () { tile.classList.add(state); }, 250);
+        })(tiles[i], states[i]);
+      }
+    }
+
+    function buildKeyboard() {
+      var kb = $("#keyboard");
+      kb.innerHTML = "";
+      QWERTY_ROWS.forEach(function (row) {
+        var rowEl = document.createElement("div");
+        rowEl.className = "kb-row";
+        row.forEach(function (key) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "key" + ((key === "ENTER" || key === "⌫") ? " wide" : "");
+          btn.textContent = key;
+          btn.dataset.key = key;
+          btn.setAttribute("aria-label", key === "⌫" ? "Backspace" : key);
+          btn.onclick = function () { handleKey(key); };
+          rowEl.appendChild(btn);
+        });
+        kb.appendChild(rowEl);
+      });
+    }
+
+    function updateKey(key, state) {
+      var btn = document.querySelector('#keyboard .key[data-key="' + key + '"]');
+      if (!btn) return;
+      var precedence = { correct: 3, present: 2, absent: 1 };
+      var current = btn.classList.contains("correct")
+        ? "correct"
+        : btn.classList.contains("present")
+        ? "present"
+        : btn.classList.contains("absent")
+        ? "absent"
+        : null;
+      if (!current || precedence[state] > precedence[current]) {
+        btn.classList.remove("correct", "present", "absent");
+        btn.classList.add(state);
+      }
+    }
+
+    function setMessage(text, opts) {
+      opts = opts || {};
+      var msg = $("#message");
+      msg.textContent = text;
+      if (opts.shake) {
+        msg.classList.remove("shake");
+        void msg.offsetWidth;
+        msg.classList.add("shake");
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Two-pass Wordle evaluation (handles duplicate letters correctly)
+    // -------------------------------------------------------------------------
+    function evaluateGuess(guess, target) {
+      var result = new Array(WORD_LENGTH).fill("absent");
+      var targetArr = target.split("");
+      var guessArr = guess.split("");
+      var targetCount = {};
+      for (var i = 0; i < targetArr.length; i++) {
+        targetCount[targetArr[i]] = (targetCount[targetArr[i]] || 0) + 1;
+      }
+      // Pass 1: exact matches
+      for (var j = 0; j < WORD_LENGTH; j++) {
+        if (guessArr[j] === targetArr[j]) {
+          result[j] = "correct";
+          targetCount[guessArr[j]] -= 1;
+        }
+      }
+      // Pass 2: present / absent
+      for (var k = 0; k < WORD_LENGTH; k++) {
+        if (result[k] === "correct") continue;
+        var ch = guessArr[k];
+        if ((targetCount[ch] || 0) > 0) {
+          result[k] = "present";
+          targetCount[ch] -= 1;
+        } else {
+          result[k] = "absent";
+        }
+      }
+      return result;
+    }
+
+    // -------------------------------------------------------------------------
+    // Input
+    // -------------------------------------------------------------------------
+    function handleKey(key) {
+      if (gameState !== "playing") return;
+      if (key === "⌫" || key === "Backspace") {
+        if (currentCol > 0) {
+          currentCol -= 1;
+          setTile(currentRow, currentCol, "");
+        }
+        return;
+      }
+      if (key === "Enter" || key === "ENTER") {
+        submitGuess();
+        return;
+      }
+      if (currentCol < WORD_LENGTH) {
+        var letter = String(key).toUpperCase();
+        if (/^[A-Z]$/.test(letter)) {
+          setTile(currentRow, currentCol, letter);
+          currentCol += 1;
+        }
+      }
+    }
+
+    function readCurrentRow() {
+      var s = "";
+      var row = $("#board").children[currentRow];
+      for (var c = 0; c < WORD_LENGTH; c++) s += row.children[c].textContent || "";
+      return s;
+    }
+
+    function submitGuess() {
+      if (currentCol < WORD_LENGTH) {
+        setMessage("Not enough letters", { shake: true });
+        return;
+      }
+      var guess = (guesses[currentRow] && guesses[currentRow].letters.join("")) || readCurrentRow();
+      var target = currentEntry.word.toUpperCase();
+      var states = evaluateGuess(guess, target);
+      guesses[currentRow] = { letters: guess.split(""), states: states };
+
+      colorTiles(currentRow, states);
+      for (var i = 0; i < guess.length; i++) updateKey(guess.charAt(i), states[i]);
+
+      if (guess === target) {
+        gameState = "won";
+        setTimeout(onWin, 600);
+        return;
+      }
+      currentRow += 1;
+      currentCol = 0;
+      if (currentRow >= MAX_ATTEMPTS) {
+        gameState = "lost";
+        setTimeout(onLose, 600);
+      } else {
+        setMessage("");
+      }
+    }
+
+    function onWin() {
+      setMessage("You unlocked a memory 💕");
+      solvedIds.add(currentEntry.id);
+      saveSolved();
+      renderCards();
+      setTimeout(function () { showReveal(currentEntry); }, 900);
+    }
+
+    function onLose() {
+      setMessage("So close — the word was " + currentEntry.word + ".");
+    }
+
+    // -------------------------------------------------------------------------
+    // Views
+    // -------------------------------------------------------------------------
+    function showGame(entry) {
+      currentEntry = entry;
+      resetGameState();
+      $("#gameTitle").textContent = "Memory #" + entry.id;
+      $("#gameHint").textContent = entry.hint;
+      setMessage("");
+      buildBoard();
+      buildKeyboard();
+      showView("gameView");
+
+      // Hide the header when game starts
+      var header = document.getElementById("siteHeader");
+      if (header) header.style.display = "none";
+    }
+
+    function showReveal(entry) {
+      var card = $("#memoryCard");
+      var photo = $("#revealPhoto");
+      var title = $("#revealTitle");
+      var letter = $("#revealLetter");
+
+      card.className = "memory-card " + entry.color;
+      photo.src = entry.photo;
+      photo.alt = entry.title;
+      title.textContent = "";
+      letter.textContent = entry.letter;
+
+      // Reset animations
+      photo.style.opacity = "0";
+      photo.style.transform = "scale(0.8) rotate(-3deg)";
+      title.style.opacity = "0";
+      title.style.transform = "translateY(20px)";
+      letter.style.opacity = "0";
+      letter.style.transform = "translateY(20px)";
+
+      showView("revealView");
+
+      // Hide the header when letter is revealed
+      var header = document.getElementById("siteHeader");
+      if (header) header.style.display = "none";
+
+      // Animate photo in with nice pop effect
+      setTimeout(function() {
+        photo.style.transition = "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        photo.style.opacity = "1";
+        photo.style.transform = "scale(1) rotate(0deg)";
+      }, 100);
+
+      // Animate title
+      setTimeout(function() {
+        title.style.transition = "all 0.6s ease-out";
+        title.style.opacity = "1";
+        title.style.transform = "translateY(0)";
+      }, 500);
+
+      // Animate letter
+      setTimeout(function() {
+        letter.style.transition = "all 0.6s ease-out";
+        letter.style.opacity = "1";
+        letter.style.transform = "translateY(0)";
+      }, 700);
+    }
+
+    // -------------------------------------------------------------------------
+    // Global handlers (called from inline onclick)
+    // -------------------------------------------------------------------------
+    window.openGame = function (wordEntry) {
+      if (!wordEntry) return;
+      if (solvedIds.has(wordEntry.id)) showReveal(wordEntry);
+      else showGame(wordEntry);
+    };
+    window.closeGame = function () {
+      showView("mainView");
+      currentEntry = null;
+      // Show the header again
+      var header = document.getElementById("siteHeader");
+      if (header) header.style.display = "block";
+    };
+    window.closeReveal = function () {
+      showView("mainView");
+      currentEntry = null;
+      // Show the header again
+      var header = document.getElementById("siteHeader");
+      if (header) header.style.display = "block";
+    };
+
+    // -------------------------------------------------------------------------
+    // Physical keyboard
+    // -------------------------------------------------------------------------
+    document.addEventListener("keydown", function (e) {
+      if (!document.getElementById("gameView").classList.contains("active")) return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var k = e.key;
+      if (k === "Backspace") { handleKey("⌫"); e.preventDefault(); return; }
+      if (k === "Enter")     { handleKey("ENTER"); e.preventDefault(); return; }
+      if (/^[a-zA-Z]$/.test(k)) handleKey(k.toUpperCase());
+    });
+
+    // -------------------------------------------------------------------------
+    // Boot
+    // -------------------------------------------------------------------------
+    renderCards();
+    showView("mainView");
+  })();
+  </script>
+</body>
+</html>
