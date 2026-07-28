@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff6b9d" />
+  <base id="baseTag">
+  <title>JINEN AND VIDHI</title>
+  <script>
+    // Set base URL for GitHub Pages subdirectory support
+    var pathParts = location.pathname.split('/').filter(Boolean);
+    var basePath = pathParts.length > 0 ? '/' + pathParts[0] + '/' : '/';
+    document.getElementById('baseTag').href = basePath;
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+/* ================================
+   Wordle Love Letters — Styles
+   ================================ */
+
+:root {
+  --pink-50: #fff0f6;
+  --pink-100: #ffd6e7;
+  --pink-200: #ffb3d1;
+  --pink-300: #ff7eb6;
+  --pink-400: #ff5fa2;
+  --pink-500: #ff3d8a;
+  --pink-600: #e63478;
+  --purple-300: #c8a2ff;
+  --purple-400: #a675ff;
+  --purple-500: #8a4dff;
+  --rose-300: #ffa1c3;
+  --rose-400: #ff739e;
+  --ink: #4a1f3d;
+  --ink-soft: #6b3957;
+  --shadow: 0 20px 50px rgba(255, 77, 145, 0.25);
+  --shadow-soft: 0 10px 30px rgba(170, 80, 160, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --correct: #4caf72;
+  --present: #e8b73b;
+  --absent: #a09aa3;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #c41e3a 0%, #8b1e6f 35%, #5b2a86 70%, #4a1f6e 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   Floating background hearts
+   ================================ */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.float-heart {
+  position: absolute;
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.55);
+  filter: blur(0.4px);
+  animation: float 14s linear infinite;
+}
+.float-heart.h1 { left: 8%;  top: 110%; font-size: 28px; animation-duration: 16s; }
+.float-heart.h2 { left: 28%; top: 110%; font-size: 44px; animation-duration: 20s; animation-delay: -3s; }
+.float-heart.h3 { left: 48%; top: 110%; font-size: 32px; animation-duration: 18s; animation-delay: -7s; }
+.float-heart.h4 { left: 70%; top: 110%; font-size: 50px; animation-duration: 22s; animation-delay: -11s; }
+.float-heart.h5 { left: 90%; top: 110%; font-size: 24px; animation-duration: 15s; animation-delay: -5s; }
+
+@keyframes float {
+  0%   { transform: translateY(0) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+/* ================================
+   Header
+   ================================ */
+.site-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px 20px 18px;
+}
+.title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5.6vw, 3.8rem);
+  margin: 0;
+  background: linear-gradient(135deg, #ffd1dc 0%, #ff8fb1 35%, #ff5e87 65%, #d946ef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 4px 24px rgba(255, 120, 160, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  letter-spacing: 2px;
+  line-height: 1.15;
+}
+.subtitle {
+  margin: 14px 0 0;
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 500;
+  color: #fce7f3;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.heart {
+  display: inline-block;
+  color: #ff6b9d;
+  font-size: 1em;
+  line-height: 1;
+  -webkit-text-fill-color: #ff6b9d;
+  text-shadow: 0 0 18px rgba(255, 107, 157, 0.6);
+}
+.pulse {
+  animation: pulse 1.6s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.18); }
+}
+
+/* ================================
+   Views
+   ================================ */
+main {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px 60px;
+}
+.view {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.35s ease;
+}
+.view.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   Progress
+   ================================ */
+.progress {
+  text-align: center;
+  margin: 0 auto 28px;
+  max-width: 520px;
+}
+.progress-text {
+  font-weight: 500;
+  color: var(--ink);
+  display: inline-block;
+  margin-bottom: 8px;
+  background: var(--glass-bg);
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+}
+.progress-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pink-400), var(--purple-400), var(--pink-300));
+  background-size: 200% 100%;
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* ================================
+   Cards grid
+   ================================ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 4px;
+}
+
+.card {
+  position: relative;
+  border-radius: 26px;
+  padding: 26px 18px;
+  min-height: 200px;
+  cursor: pointer;
+  background: var(--card-bg, linear-gradient(135deg, #ffb6d5, #d4a4ff));
+  color: #fff;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  overflow: hidden;
+  isolation: isolate;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.45), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 28px 60px rgba(255, 77, 145, 0.35);
+}
+.card:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.card.locked {
+  filter: saturate(0.7) brightness(0.95);
+}
+.card.locked::after {
+  content: "🔒";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+.card.unlocked::after {
+  content: "♥";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card .card-icon {
+  font-size: 38px;
+  margin-bottom: 10px;
+  display: block;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.card .card-number {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+  opacity: 0.95;
+}
+.card .card-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.95;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.card.unlocked .card-label { opacity: 1; }
+.card .card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+}
+.card:hover .card-glow { transform: translateX(100%); }
+.card.unlocked {
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 20px 50px rgba(255, 77, 145, 0.25); }
+  50%      { box-shadow: 0 26px 60px rgba(255, 130, 195, 0.5); }
+}
+
+/* ================================
+   10 unique gradient themes
+   ================================ */
+.gradient-1  { background: linear-gradient(135deg, #ff9ec7 0%, #c87bff 100%); }
+.gradient-2  { background: linear-gradient(135deg, #ffb199 0%, #ff6a88 100%); }
+.gradient-3  { background: linear-gradient(135deg, #f6a5ff 0%, #ff7eb6 100%); }
+.gradient-4  { background: linear-gradient(135deg, #ffd1ff 0%, #b285ff 100%); }
+.gradient-5  { background: linear-gradient(135deg, #ff7eb6 0%, #8a4dff 100%); }
+.gradient-6  { background: linear-gradient(135deg, #ffc8a2 0%, #ff6b9d 100%); }
+.gradient-7  { background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%); }
+.gradient-8  { background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%); }
+.gradient-9  { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+.gradient-10 { background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%); }
+
+/* ================================
+   Back button
+   ================================ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 18px;
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.back-btn:hover { transform: translateX(-3px); background: rgba(255, 255, 255, 0.75); }
+.back-btn:active { transform: translateX(-1px) scale(0.98); }
+
+/* ================================
+   Game View
+   ================================ */
+.game-container {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  padding: 26px 22px 30px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  max-width: 520px;
+  margin: 0 auto;
+}
+.game-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+.hint-box {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px dashed rgba(255, 105, 165, 0.45);
+  border-radius: 14px;
+  padding: 10px 14px;
+  text-align: center;
+  margin: 0 auto 18px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.hint-label {
+  font-weight: 600;
+  color: var(--pink-600);
+  margin-right: 4px;
+}
+
+/* Wordle board */
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 6px;
+  margin: 0 auto 16px;
+  max-width: 360px;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.tile {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(180, 120, 170, 0.35);
+  border-radius: 12px;
+  transition: transform 0.15s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+.tile.filled {
+  border-color: var(--pink-400);
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.04);
+}
+.tile.correct {
+  background: var(--correct);
+  color: #fff;
+  border-color: var(--correct);
+}
+.tile.present {
+  background: var(--present);
+  color: #fff;
+  border-color: var(--present);
+}
+.tile.absent {
+  background: var(--absent);
+  color: #fff;
+  border-color: var(--absent);
+}
+.tile.pop { animation: pop 0.15s ease; }
+.tile.flip { animation: flip 0.5s ease forwards; }
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1.04); }
+}
+@keyframes flip {
+  0%   { transform: rotateX(0);   background: rgba(255, 255, 255, 0.85); }
+  50%  { transform: rotateX(90deg); }
+  100% { transform: rotateX(0); }
+}
+
+.message {
+  text-align: center;
+  min-height: 1.4em;
+  font-weight: 500;
+  color: var(--pink-600);
+  margin-bottom: 14px;
+}
+.message.shake { animation: shake 0.4s; }
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+
+/* Keyboard */
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+  max-width: 480px;
+}
+.kb-row {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  width: 100%;
+}
+.key {
+  flex: 1 1 0;
+  min-width: 28px;
+  height: 48px;
+  padding: 0 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(180, 120, 170, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  user-select: none;
+}
+.key:hover { background: rgba(255, 255, 255, 0.95); }
+.key:active { transform: scale(0.95); }
+.key.wide {
+  flex: 2.5 1 0;
+  font-size: 0.85rem;
+}
+.key.correct { background: var(--correct); color: #fff; border-color: var(--correct); }
+.key.present { background: var(--present); color: #fff; border-color: var(--present); }
+.key.absent  { background: var(--absent);  color: #fff; border-color: var(--absent); }
+
+/* ================================
+   Reveal view (memory card)
+   ================================ */
+.memory-card {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 28px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.memory-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--card-bg, linear-gradient(135deg, rgba(255, 158, 199, 0.3), rgba(200, 123, 255, 0.3)));
+  z-index: -1;
+  opacity: 0.35;
+}
+.memory-photo {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #ffe1ec, #e8d5ff);
+  box-shadow: 0 14px 30px rgba(170, 80, 160, 0.25);
+}
+.memory-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#revealPhoto {
+  opacity: 0;
+  transform: scale(0.8) rotate(-2deg);
+}
+#revealTitle {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+#revealLetter {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.heart-accent {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--pink-500);
+  border-radius: 50%;
+  font-size: 22px;
+  box-shadow: 0 6px 18px rgba(255, 77, 145, 0.3);
+}
+.memory-content {
+  text-align: center;
+  padding: 4px 6px 6px;
+}
+.memory-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--ink);
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+.memory-letter {
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.2px;
+  color: var(--ink);
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* ================================
+   Finale view (anniversary letter)
+   Styled as an aged parchment scroll
+   ================================ */
+.finale-card {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 70px 38px 70px;
+  text-align: center;
+  color: #3a2410;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(160, 110, 60, 0.18), transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(160, 110, 60, 0.18), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 240, 200, 0.5), transparent 70%),
+    linear-gradient(180deg, #fbecc7 0%, #f6e1b0 35%, #f1d49a 65%, #ecc486 100%);
+  border-radius: 6px;
+  box-shadow:
+    0 30px 60px rgba(80, 40, 10, 0.45),
+    0 10px 22px rgba(80, 40, 10, 0.28),
+    inset 0 0 80px rgba(140, 90, 40, 0.22);
+  isolation: isolate;
+}
+/* Subtle aged-paper grain via repeating gradient noise */
+.finale-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(120, 75, 30, 0.04) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(-45deg, rgba(120, 75, 30, 0.04) 0 2px, transparent 2px 6px),
+    radial-gradient(circle at 20% 25%, rgba(120, 75, 30, 0.10), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(120, 75, 30, 0.10), transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Top scroll rod */
+.finale-card::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -22px;
+  right: -22px;
+  height: 34px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg,
+      #4a2d12 0%,
+      #6b4423 18%,
+      #8b5a2b 38%,
+      #b07a3c 50%,
+      #8b5a2b 62%,
+      #5a3618 82%,
+      #3a200d 100%);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.45),
+    inset 0 2px 3px rgba(255, 220, 170, 0.35),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+/* Scroll rod end-caps (left/right darker circles) */
+.finale-rod-cap {
+  position: absolute;
+  top: -22px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #c08948 0%, #8b5a2b 40%, #4a2d12 80%, #2a1808 100%);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 220, 170, 0.4),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.finale-rod-cap::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #f1c98a, #8b5a2b 60%, #2a1808);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+.finale-rod-cap.left  { left: -28px; }
+.finale-rod-cap.right { right: -28px; }
+
+/* Bottom scroll rod — added as a child div for symmetry with the top rod */
+.finale-rod-bottom {
+  position: absolute;
+  bottom: -16px;
+  left: -22px;
+  right: -22px;
+  height: 34px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg,
+      #4a2d12 0%,
+      #6b4423 18%,
+      #8b5a2b 38%,
+      #b07a3c 50%,
+      #8b5a2b 62%,
+      #5a3618 82%,
+      #3a200d 100%);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.45),
+    inset 0 2px 3px rgba(255, 220, 170, 0.35),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.finale-content {
+  position: relative;
+  z-index: 1;
+}
+
+.finale-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #4a1f0a;
+  margin: 0 0 8px;
+  line-height: 1.2;
+  text-shadow: 0 1px 0 rgba(255, 240, 200, 0.55);
+}
+.finale-subtitle {
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 500;
+  color: #8a3a1a;
+  margin: 0 0 22px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.finale-divider {
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8a3a1a, transparent);
+  margin: 0 auto 22px;
+  border: 0;
+  opacity: 0.6;
+}
+.finale-letter {
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-size: clamp(1rem, 2.1vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: 0.2px;
+  color: #3a1a08;
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0 4px;
+}
+.finale-signoff {
+  margin-top: 26px;
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 600;
+  color: #8a3a1a;
+  font-style: italic;
+}
+
+/* Next button in finale */
+.finale-next-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 28px;
+  background: transparent;
+  color: #8a3a1a;
+  border: 2px solid #8a3a1a;
+  border-radius: 30px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.finale-next-btn:hover {
+  background: #8a3a1a;
+  color: white;
+  transform: translateY(-2px);
+}
+.finale-next-btn .next-arrow {
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+.finale-next-btn:hover .next-arrow {
+  transform: translateX(4px);
+}
+
+/* Special mention view */
+.special-mention-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #fef9e7 0%, #fdebd0 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.special-mention-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #5d4e37;
+  margin-bottom: 30px;
+}
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Wax seal decoration in the bottom-right of the scroll */
+.finale-wax-seal {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #ff7e8a 0%, #d8394a 35%, #8a1622 75%, #4a0610 100%);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 3px 6px rgba(255, 200, 200, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  color: #fff5e6;
+  font-size: 1.6rem;
+  font-weight: 700;
+  z-index: 3;
+  transform: rotate(-12deg);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+.finale-wax-seal::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 245, 230, 0.55);
+}
+
+/* "Play on YouTube" button at the top of the finale */
+.finale-play-youtube {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 22px;
+  padding: 14px 26px;
+  max-width: 360px;
+  background: linear-gradient(135deg, #ff3d5a 0%, #e6213e 50%, #c40a26 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  font-family: "Quicksand", "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  box-shadow:
+    0 14px 32px rgba(196, 10, 38, 0.45),
+    inset 0 2px 3px rgba(255, 255, 255, 0.35);
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.finale-play-youtube:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 38px rgba(196, 10, 38, 0.55),
+    inset 0 2px 3px rgba(255, 255, 255, 0.35);
+}
+.finale-play-youtube:active { transform: translateY(0) scale(0.98); }
+.finale-play-youtube .play-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  font-size: 14px;
+}
+.finale-play-youtube .play-youtube-sub {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  opacity: 0.85;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.finale-play-youtube .play-youtube-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+/* Floating audio player — REMOVED: the song is now opened manually from
+   the "Play on YouTube" button at the top of the finale scroll. */
+
+/* Fallback play prompt — REMOVED: replaced by the always-visible
+   "Play on YouTube" button at the top of the finale. */
+
+/* Completion banner / trophy card on the grid */
+.completion-banner {
+  grid-column: 1 / -1;
+  margin: 4px auto 0;
+  max-width: 520px;
+  width: 100%;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, rgba(255, 158, 199, 0.95), rgba(200, 123, 255, 0.95));
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  font-family: "Quicksand", "Poppins", sans-serif;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(170, 80, 160, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.completion-banner:hover { transform: translateY(-3px); box-shadow: 0 22px 50px rgba(170, 80, 160, 0.45); }
+.completion-banner h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+.completion-banner p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+@media (min-width: 720px) {
+  .memory-card {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 32px;
+  }
+  .memory-photo { aspect-ratio: 1 / 1; }
+  .memory-content { text-align: left; }
+}
+
+/* ================================
+   Responsive tweaks
+   ================================ */
+@media (max-width: 520px) {
+  .site-header { padding: 28px 16px 12px; }
+  main { padding: 0 14px 40px; }
+  .cards-grid { gap: 14px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .card { padding: 22px 14px; min-height: 170px; border-radius: 22px; }
+  .card .card-icon { font-size: 32px; }
+  .game-container { padding: 22px 14px 24px; border-radius: 22px; }
+  .key { height: 44px; font-size: 0.85rem; min-width: 24px; }
+  .key.wide { font-size: 0.78rem; }
+  .memory-card { padding: 20px; border-radius: 24px; }
+  .memory-photo { border-radius: 18px; }
+  .finale-card { padding: 60px 24px 60px; border-radius: 6px; }
+  .finale-card::after,
+  .finale-rod-bottom { left: -14px; right: -14px; height: 28px; }
+  .finale-rod-cap { width: 38px; height: 38px; top: -18px; }
+  .finale-rod-cap.left  { left: -22px; }
+  .finale-rod-cap.right { right: -22px; }
+  .finale-wax-seal { width: 60px; height: 60px; font-size: 1.2rem; bottom: 20px; right: 20px; }
+  .finale-letter { text-align: left; }
+  .finale-play-youtube { padding: 12px 20px; }
+}
+
+@media (max-width: 360px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .key { font-size: 0.78rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="float-heart h1">♥</span>
+    <span class="float-heart h2">♥</span>
+    <span class="float-heart h3">♥</span>
+    <span class="float-heart h4">♥</span>
+    <span class="float-heart h5">♥</span>
+  </div>
+
+  <header id="siteHeader" class="site-header">
+    <h1 class="title">
+      <span class="heart pulse" aria-hidden="true">♥</span>
+      <span>JINEN AND VIDHI</span>
+      <span class="heart pulse" aria-hidden="true">♥</span>
+    </h1>
+    <p class="subtitle">Our love story ❤️</p>
+  </header>
+
+  <main>
+    <!-- Main View: Cards Grid -->
+    <section id="mainView" class="view active" aria-label="Memory cards">
+      <div class="progress">
+        <span id="progressText" class="progress-text">0 of 10 memories unlocked</span>
+        <div class="progress-bar" aria-hidden="true">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+      <div id="cardsGrid" class="cards-grid" role="list"></div>
+    </section>
+
+    <!-- Game View: Wordle Game -->
+    <section id="gameView" class="view" aria-label="Word guessing game">
+      <button class="back-btn" onclick="closeGame()" type="button">← Back</button>
+      <div class="game-container">
+        <h2 id="gameTitle" class="game-title">Memory</h2>
+        <div class="hint-box">
+          <span class="hint-label">Hint:</span>
+          <span id="gameHint" class="hint-text">—</span>
+        </div>
+        <div id="board" class="board" aria-label="Wordle board"></div>
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+        <div id="keyboard" class="keyboard" aria-label="On-screen keyboard"></div>
+      </div>
+    </section>
+
+    <!-- Reveal View: Memory Card -->
+    <section id="revealView" class="view" aria-label="Memory reveal">
+      <button class="back-btn" onclick="closeReveal()" type="button">← Back to all words</button>
+      <article id="memoryCard" class="memory-card gradient-1">
+        <div class="memory-photo">
+          <img id="revealPhoto" src="" alt="Memory photo" />
+        </div>
+        <div class="memory-content">
+          <h2 id="revealTitle" class="memory-title">Memory</h2>
+          <p id="revealLetter" class="memory-letter">Letter goes here.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Finale View: 1-Year Anniversary Letter (auto-opens at 10/10) -->
+    <section id="finaleView" class="view" aria-label="Anniversary letter">
+      <button class="back-btn" onclick="closeFinale()" type="button">← Back to all memories</button>
+      <article class="finale-card">
+        <span class="finale-rod-cap left" aria-hidden="true"></span>
+        <span class="finale-rod-cap right" aria-hidden="true"></span>
+        <div class="finale-rod-bottom" aria-hidden="true"></div>
+        <div class="finale-content">
+          <button id="playOnYoutubeBtn" class="finale-play-youtube" type="button" onclick="playSongInBackground()" aria-label="Play our song on YouTube">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span class="play-youtube-stack">
+              <span>Play Our Song</span>
+              <span class="play-youtube-sub">Open on YouTube ↗</span>
+            </span>
+          </button>
+          <h2 class="finale-title">Happy 1 Year, My Love</h2>
+                    <hr class="finale-divider" />
+          <p id="finaleLetter" class="finale-letter"></p>
+          <p class="finale-signoff">Forever yours,<br/>Jinen ♥</p>
+          <button class="finale-next-btn" type="button" onclick="showSpecialMention()">
+            A worthy special mention
+            <span class="next-arrow">→</span>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Special Mention View: Video -->
+    <section id="specialMentionView" class="view" aria-label="Special mention">
+      <button class="back-btn" onclick="closeSpecialMention()" type="button">← Back to letter</button>
+      <article class="special-mention-card">
+        <h2 class="special-mention-title">A Worthy Special Mention</h2>
+        <div class="video-container">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/ZztqS9PEELw"
+            title="Special Mention Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="photos.js"></script>
+<script>
+// -------------------------------------------------------------------------
+// Data
+// -------------------------------------------------------------------------
+const words = [
+  { id: 1,  word: "VIDHI", hint: "The love of my life 💕",          title: "Memory 1",         photo: photos[1],  letter: "Happy 1 year anniversary, baby. I'm so grateful to have you by my side. I'm so proud of us for reaching such a beautiful milestone in our relationship. This year has been filled with love, laughter, patience, and countless memories that I'll always cherish. Even with the distance between us, you've made every day feel special. Thank you for loving me, supporting me, and believing in us through everything. You are my favorite person and my greatest blessing. I love you so much vidhi. Always be the person you are- A happy cute baby. Even when we're old you'll always be my baby girl vidhi. I love you forever. ❤️", color: "gradient-1"  },
+  { id: 2,  word: "LOVES", hint: "Fill in the blank: Jinen _____ Vidhi",  title: "Memory 2",        photo: photos[2],  letter: "I love you, Vidhi. I mean it when I say I'll always love you and be by your side. Thank you for loving me, believing in me, and making me smile even from miles away. You make my life brighter in every possible way. I promise to always support you, respect you, and choose you no matter what life brings. I can't wait for the day we finally close this distance. I'll do anything to see a smile on your cute face. I love you endlessly, baby.", color: "gradient-2"  },
+  { id: 3,  word: "JINEN", hint: "The luckiest guy in the world", title: "Memory 3",          photo: photos[3],  letter: "It's me, Vidhi. I'm the luckiest guy in the world because I have you, baby. You're my lucky charm and the reason behind so many of my happiest moments. Thank you for filling our relationship with love, laughter, and endless support. You make even the hardest days feel lighter just by being there for me. I hope you always know how deeply loved and appreciated you are. No matter where life takes us, my heart will always belong to you. Thank you for being my home, my peace, and my forever. I love you more than words can ever express.", color: "gradient-3"  },
+  { id: 4,  word: "PINGU", hint: "The thing you can't sleep without",     title: "Memory 4",               photo: photos[4],  letter: "This was the first gift that I gave you, baby, and it turned out to be something so special for both of us. I love seeing how you play with it and cuddle it while thinking about me because it makes me feel like I'm right there beside you, even when we're miles apart. It means so much to know that a little gift can bring you comfort and remind you of us. I also loved seeing Shlok and Shriya play with it—it made me so happy knowing that I chose something so cute. But my favorite part will always be knowing that you cuddle it to sleep every night. It makes me smile because, in a way, it feels like you're hugging me too. I hope it continues to be your temporary boyfriend till your permanent boyfriend is there to hold you", color: "gradient-4"  },
+  { id: 5,  word: "SMILE", hint: "My favourite curve on your body",         title: "Memory 5",        photo: photos[5],  letter: "Vidhi, you have many beautiful curves, but my favorite one will always be your smile. Seeing you smile lights up my day in a way nothing else can. You have such a contagious smile, baby, that it's impossible for me not to smile right back. That's one of the reasons I love making you laugh and doing little things that brighten your day.\n\nYour smile is my favorite sight, whether it's because of a silly joke, a late-night conversation, or one of our countless little moments together. It reminds me that no matter how far apart we are, we can still bring happiness into each other's lives.\n\nOn your happiest days, I want to smile with you, and on your hardest days, I want to be the reason your smile returns. Because to me, your smile is the most beautiful thing in the world, and I'll never get tired of falling in love with it.", color: "gradient-5"  },
+  { id: 6,  word: "CUTIE", hint: "Vidhi is a ______",          title: "Memory 6",      photo: photos[6],  letter: "Vidhi baby, you're the cutest baby I have ever seen. I love playing with you and talking to you because every moment with you is filled with happiness. You bring out the inner child in me and make me laugh in ways no one else ever can. With you, I can be my true self without worrying about anything, and that's one of the things I love the most about us.\nI adore all our silly conversations, random jokes, and the little moments that only we understand. You make even the most ordinary days feel special just by being there. I hope we never stop being playful, teasing each other, and creating memories together. I love every version of you, but my favorite will always be the cute, adorable baby that makes my heart melt every single day. I love you endlessly. ❤️", color: "gradient-6"  },
+  { id: 7,  word: "SLEEP", hint: "The only thing you love to do except me",         title: "Memory 7",      photo: photos[7],  letter: "I know, baby, me and sleep have some serious competition, but I hope you'll always choose me over sleeping. I love how sleepy we both are. We really are the perfect sleepy couple—you somehow manage to feel sleepy every single day, and I can sleep for an unknown number of hours without even trying. It's one of my favorite little things about us.\n\nAnd honestly, you look so adorable when you're asleep. Seeing you so peaceful makes my heart so happy. I could spend hours just looking at you while you sleep, knowing you're safe and comfortable. One day, I hope I get to wake up beside you every morning, steal a few cuddles and remind you just how much I love my sleepy girl.", color: "gradient-7"  },
+  { id: 8,  word: "YEARS", hint: "I'm going to love you for many many _______",  title: "Memory 8",     photo: photos[8],  letter: "Happy one year anniversary, baby. I'm so happy that we've completed one year of dating, but somehow it still feels like it's not enough because it feels like I've known you forever. Being with you feels so natural, like you've always been a part of my life. Every day with you has only made me more certain that you're the person I want by my side. Thank you for making this year one of the happiest chapter of my life. I can't wait to celebrate many more anniversaries with you, create countless new memories, and grow old together. No matter how much time passes, I'll always choose you. I love you more with every single day, baby. Happy one year to us", color: "gradient-8"  },
+  { id: 9,  word: "TEARS", hint: "A sign that someone means the world to you", title: "Memory 9",             photo: photos[9],  letter: "This is the one thing that has always been a part of our love and our sleeping habits. Every night when we're on call, I think about all the moments we've shared, and sometimes it makes me emotional because I wish I could be there with you instead of being miles away. Whenever you're feeling down or things aren't going your way, it hurts me knowing I can't be there to fix the problem, hold you close, or comfort you with a hug.\nI wish I could wipe away your tears, make you smile instantly, and remind you that everything will be okay. Until the day I can do that in person, I hope my words, my love, and our late-night calls bring you at least a little comfort. One day, these calls won't be the only thing that puts us to sleep—we'll be beside each other, falling asleep hand in hand. Until then, I'll always be here for you, no matter the distance.", color: "gradient-9"  },
+  { id: 10, word: "MARRY", hint: "Our end goal",          title: "Memory 10",       photo: photos[10], letter: "Yes, Vidhi, this was my end goal from the moment we decided to date. It was always to marry you. I never wanted something temporary—I wanted forever with you. I want to grow old with you, baby, and experience every little moment life has to offer. I dream of waking up beside you, building a home together, laughing over silly things, and creating countless memories. Through every happy moment and every challenge, I promise to stand by your side. Thank you for making me believe in love. My heart has chosen you, and it will keep choosing you forever.", color: "gradient-10" }
+];
+
+// -------------------------------------------------------------------------
+// Finale — 1-year anniversary letter & song (auto-opens at 10/10)
+// -------------------------------------------------------------------------
+// Song: https://youtu.be/f5-IY_Ja1RM
+const FINALE_VIDEO_ID = "f5-IY_Ja1RM";
+
+const finaleLetter = {
+  body:
+`Happy 1 year anniversary, baby girl. I'm so happy that we could reach such a beautiful milestone together. It honestly feels like this year flew by, yet at the same time it feels like I've known and loved you forever. Every memory we've made, every late-night call, every laugh, every little argument we worked through, and every "I love you" has made this year the most special year of my life.
+
+You know I always like to dedicate a song to you at the end because music has a magical way of preserving memories. Whenever you hear this song, I hope it reminds you of us—of all our late-night conversations, our endless teasing, the times we laughed until our stomachs hurt, the moments we cried together, and every little memory that brought us closer. I hope years from now, when this song randomly plays somewhere, we look at each other and smile because we'll remember where it all began.
+
+I love you so much, baby. Thank you for everything you've done for me—for always standing by my side, believing in me when I couldn't believe in myself, correcting me whenever I'm wrong, celebrating my wins, comforting me during my lows, and loving me even on the days when I'm difficult to love. You've shown me what genuine love, patience, and understanding look like, and I'll never stop being grateful for that.
+
+Thank you for accepting every version of me—the childish one, the annoying one, the emotional one, the sleepy one, and the one that simply wants to spend every second with you. You've become my home, my peace, my comfort, and my favorite person. I genuinely couldn't ask for anything more because having you in my life already feels like I've won the biggest prize.
+
+So here's one last song for our first year together—a song that will forever remind me of you and of us. Thank you for giving me the happiest year of my life. Thank you for loving me so deeply and allowing me to love you the same way. No matter how many years pass, no matter how much we change, one thing will always stay the same: my heart will always choose you.`
+};
+
+// -------------------------------------------------------------------------
+// Constants
+// -------------------------------------------------------------------------
+const STORAGE_KEY = "wordleLoveLetters_solved";
+const MAX_ATTEMPTS = 6;
+const WORD_LENGTH = 5;
+
+// All words start locked on every page load — no progress persists across visits.
+const PERSIST_PROGRESS = false;
+
+const QWERTY_ROWS = [
+  ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+  ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "⌫"],
+];
+
+// -------------------------------------------------------------------------
+// State
+// -------------------------------------------------------------------------
+let solvedIds = loadSolved();            // Set of word ids solved (persisted)
+let currentEntry = null;                 // The wordEntry being played
+let guesses = [];                        // Array of { letters: string[], states: string[] }
+let currentRow = 0;                      // 0..MAX_ATTEMPTS-1
+let currentCol = 0;                      // 0..WORD_LENGTH-1
+let gameState = "idle";                  // "idle" | "playing" | "won" | "lost"
+
+// YouTube song (opened manually via the "Play on YouTube" button in the finale)
+let _manualPromptTimer = null;           // setTimeout handle for the fallback play prompt
+
+// -------------------------------------------------------------------------
+// DOM helpers
+// -------------------------------------------------------------------------
+const $ = (sel) => document.querySelector(sel);
+
+function showView(viewId) {
+  document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
+  const el = document.getElementById(viewId);
+  if (el) el.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// -------------------------------------------------------------------------
+// Persistence
+// -------------------------------------------------------------------------
+function loadSolved() {
+  if (!PERSIST_PROGRESS) {
+    // Clear any leftover state from previous visits so old unlocks don't bleed through.
+    try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
+    return new Set();
+  }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw);
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch (err) {
+    console.warn("Could not read solved state from localStorage", err);
+    return new Set();
+  }
+}
+
+function saveSolved() {
+  if (!PERSIST_PROGRESS) return;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...solvedIds]));
+  } catch (err) {
+    console.warn("Could not write solved state to localStorage", err);
+  }
+}
+
+// -------------------------------------------------------------------------
+// Landing page: render cards + progress
+// -------------------------------------------------------------------------
+function renderCards() {
+  const grid = $("#cardsGrid");
+  grid.innerHTML = "";
+  words.forEach((entry) => {
+    const isSolved = solvedIds.has(entry.id);
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = `card ${entry.color} ${isSolved ? "unlocked" : "locked"}`;
+    card.setAttribute("role", "listitem");
+    card.setAttribute("aria-label", `${entry.title} — ${isSolved ? "unlocked" : "locked"}`);
+    card.onclick = () => window.openGame(entry);
+    card.innerHTML = `
+      <span class="card-glow" aria-hidden="true"></span>
+      <span class="card-icon" aria-hidden="true">${isSolved ? "💖" : "♥"}</span>
+      <p class="card-number">${isSolved ? entry.word : `Memory ${entry.id}`}</p>
+      <p class="card-label">${isSolved ? "Unlocked" : "Locked"}</p>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Once all 10 are unlocked, surface a banner that re-opens the finale letter.
+  // The finale also auto-opens from onWin, but this lets her come back to it
+  // after navigating away.
+  if (solvedIds.size === words.length) {
+    const banner = document.createElement("button");
+    banner.type = "button";
+    banner.className = "completion-banner";
+    banner.setAttribute("aria-label", "Open anniversary letter");
+    banner.onclick = () => showFinale();
+    banner.innerHTML = `
+      <h3>💌 Our Anniversary Letter</h3>
+      <p>Read the letter &amp; play our song</p>
+    `;
+    grid.appendChild(banner);
+  }
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const count = solvedIds.size;
+  $("#progressText").textContent = `${count} of ${words.length} memories unlocked`;
+  const pct = (count / words.length) * 100;
+  $("#progressFill").style.width = `${pct}%`;
+}
+
+// -------------------------------------------------------------------------
+// Game view
+// -------------------------------------------------------------------------
+function resetGameState() {
+  guesses = [];
+  currentRow = 0;
+  currentCol = 0;
+  gameState = "playing";
+}
+
+function buildBoard() {
+  const board = $("#board");
+  board.innerHTML = "";
+  for (let r = 0; r < MAX_ATTEMPTS; r++) {
+    const row = document.createElement("div");
+    row.className = "row";
+    for (let c = 0; c < WORD_LENGTH; c++) {
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.dataset.row = String(r);
+      tile.dataset.col = String(c);
+      row.appendChild(tile);
+    }
+    board.appendChild(row);
+  }
+}
+
+function setTile(row, col, letter) {
+  const tile = $("#board").children[row]?.children[col];
+  if (!tile) return;
+  tile.textContent = letter;
+  if (letter) {
+    tile.classList.add("filled");
+    tile.classList.remove("pop");
+    void tile.offsetWidth; // restart animation
+    tile.classList.add("pop");
+  } else {
+    tile.classList.remove("filled");
+  }
+}
+
+function colorTiles(row, states) {
+  const rowEl = $("#board").children[row];
+  if (!rowEl) return;
+  [...rowEl.children].forEach((tile, i) => {
+    tile.classList.add("flip");
+    setTimeout(() => tile.classList.add(states[i]), 250);
+  });
+}
+
+function buildKeyboard() {
+  const kb = $("#keyboard");
+  kb.innerHTML = "";
+  QWERTY_ROWS.forEach((row) => {
+    const rowEl = document.createElement("div");
+    rowEl.className = "kb-row";
+    row.forEach((key) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "key" + (key === "ENTER" || key === "⌫" ? " wide" : "");
+      btn.textContent = key;
+      btn.dataset.key = key;
+      btn.setAttribute("aria-label", key === "⌫" ? "Backspace" : key);
+      btn.onclick = () => handleKey(key);
+      rowEl.appendChild(btn);
+    });
+    kb.appendChild(rowEl);
+  });
+}
+
+function updateKey(key, state) {
+  // state precedence: correct > present > absent
+  const btn = $(`#keyboard .key[data-key="${key}"]`);
+  if (!btn) return;
+  const precedence = { correct: 3, present: 2, absent: 1 };
+  const current = btn.classList.contains("correct")
+    ? "correct"
+    : btn.classList.contains("present")
+    ? "present"
+    : btn.classList.contains("absent")
+    ? "absent"
+    : null;
+  if (!current || precedence[state] > precedence[current]) {
+    btn.classList.remove("correct", "present", "absent");
+    btn.classList.add(state);
+  }
+}
+
+function setMessage(text, { shake = false } = {}) {
+  const msg = $("#message");
+  msg.textContent = text;
+  if (shake) {
+    msg.classList.remove("shake");
+    void msg.offsetWidth;
+    msg.classList.add("shake");
+  }
+}
+
+// -------------------------------------------------------------------------
+// Wordle logic: two-pass evaluation for duplicate letters
+// -------------------------------------------------------------------------
+function evaluateGuess(guess, target) {
+  const result = new Array(WORD_LENGTH).fill("absent");
+  const targetArr = target.split("");
+  const guessArr = guess.split("");
+  const targetCount = {};
+  for (const ch of targetArr) targetCount[ch] = (targetCount[ch] || 0) + 1;
+
+  // Pass 1: mark exact matches and consume counts
+  for (let i = 0; i < WORD_LENGTH; i++) {
+    if (guessArr[i] === targetArr[i]) {
+      result[i] = "correct";
+      targetCount[guessArr[i]] -= 1;
+    }
+  }
+  // Pass 2: mark present/absent based on remaining counts
+  for (let i = 0; i < WORD_LENGTH; i++) {
+    if (result[i] === "correct") continue;
+    const ch = guessArr[i];
+    if ((targetCount[ch] || 0) > 0) {
+      result[i] = "present";
+      targetCount[ch] -= 1;
+    } else {
+      result[i] = "absent";
+    }
+  }
+  return result;
+}
+
+// -------------------------------------------------------------------------
+// Input handling
+// -------------------------------------------------------------------------
+function handleKey(key) {
+  if (gameState !== "playing") return;
+
+  if (key === "⌫" || key === "Backspace") {
+    if (currentCol > 0) {
+      currentCol -= 1;
+      setTile(currentRow, currentCol, "");
+    }
+    return;
+  }
+  if (key === "Enter" || key === "ENTER") {
+    submitGuess();
+    return;
+  }
+  if (currentCol < WORD_LENGTH) {
+    const letter = String(key).toUpperCase();
+    if (/^[A-Z]$/.test(letter)) {
+      setTile(currentRow, currentCol, letter);
+      currentCol += 1;
+    }
+  }
+}
+
+function submitGuess() {
+  if (currentCol < WORD_LENGTH) {
+    setMessage("Not enough letters", { shake: true });
+    return;
+  }
+  const guess = guesses[currentRow] || readCurrentRow();
+  const target = currentEntry.word.toUpperCase();
+  const states = evaluateGuess(guess, target);
+  guesses[currentRow] = { letters: guess.split(""), states };
+
+  colorTiles(currentRow, states);
+  guess.split("").forEach((ch, i) => updateKey(ch, states[i]));
+
+  if (guess === target) {
+    gameState = "won";
+    setTimeout(() => onWin(), 600);
+    return;
+  }
+
+  currentRow += 1;
+  currentCol = 0;
+  if (currentRow >= MAX_ATTEMPTS) {
+    gameState = "lost";
+    setTimeout(() => onLose(), 600);
+  } else {
+    setMessage("");
+  }
+}
+
+function readCurrentRow() {
+  let s = "";
+  for (let c = 0; c < WORD_LENGTH; c++) {
+    const tile = $("#board").children[currentRow].children[c];
+    s += tile.textContent || "";
+  }
+  return s;
+}
+
+function onWin() {
+  setMessage("You unlocked a memory 💕");
+  solvedIds.add(currentEntry.id);
+  saveSolved();
+  renderCards();
+  setTimeout(() => showReveal(currentEntry), 900);
+  // Note: Finale is now opened manually after viewing the final memory
+  // When she clicks back from the final reveal, we'll show the special message then open the finale
+}
+
+function onLose() {
+  setMessage("Try again cutie I know you can do it!");
+}
+
+// -------------------------------------------------------------------------
+// Views: game + reveal
+// -------------------------------------------------------------------------
+function showGame(entry) {
+  currentEntry = entry;
+  resetGameState();
+  $("#gameTitle").textContent = `Memory ${entry.id}`;
+  $("#gameHint").textContent = entry.hint;
+  setMessage("");
+  buildBoard();
+  buildKeyboard();
+  showView("gameView");
+
+  // Hide the header when game starts
+  const header = document.getElementById("siteHeader");
+  if (header) header.style.display = "none";
+}
+
+function showReveal(entry) {
+  const card = $("#memoryCard");
+  const photo = $("#revealPhoto");
+  const title = $("#revealTitle");
+  const letter = $("#revealLetter");
+
+  card.className = `memory-card ${entry.color}`;
+  photo.src = entry.photo;
+  photo.alt = entry.title;
+  title.textContent = "";
+  letter.textContent = entry.letter;
+
+  // Reset animations
+  photo.style.opacity = "0";
+  photo.style.transform = "scale(0.8) rotate(-3deg)";
+  title.style.opacity = "0";
+  title.style.transform = "translateY(20px)";
+  letter.style.opacity = "0";
+  letter.style.transform = "translateY(20px)";
+
+  showView("revealView");
+
+  // Hide the header when letter is revealed
+  const header = document.getElementById("siteHeader");
+  if (header) header.style.display = "none";
+
+  // Animate photo in with nice pop effect
+  setTimeout(() => {
+    photo.style.transition = "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+    photo.style.opacity = "1";
+    photo.style.transform = "scale(1) rotate(0deg)";
+  }, 100);
+
+  // Animate title
+  setTimeout(() => {
+    title.style.transition = "all 0.6s ease-out";
+    title.style.opacity = "1";
+    title.style.transform = "translateY(0)";
+  }, 500);
+
+  // Animate letter
+  setTimeout(() => {
+    letter.style.transition = "all 0.6s ease-out";
+    letter.style.opacity = "1";
+    letter.style.transform = "translateY(0)";
+  }, 700);
+}
+
+// -------------------------------------------------------------------------
+// Inline onclick handlers (also global for inline use)
+// -------------------------------------------------------------------------
+window.openGame = function (wordEntry) {
+  if (!wordEntry) return;
+  // If the word is already solved, jump straight to the reveal.
+  if (solvedIds.has(wordEntry.id)) {
+    showReveal(wordEntry);
+  } else {
+    showGame(wordEntry);
+  }
+};
+
+window.closeGame = function () {
+  showView("mainView");
+  currentEntry = null;
+  // Show the header again
+  const header = document.getElementById("siteHeader");
+  if (header) header.style.display = "block";
+};
+
+window.closeReveal = function () {
+  currentEntry = null;
+  // Show the header again
+  const header = document.getElementById("siteHeader");
+  if (header) header.style.display = "block";
+  // Check if all memories are unlocked - if so, show special message then finale
+  if (solvedIds.size === words.length) {
+    showSpecialMessageThenFinale();
+  } else {
+    showView("mainView");
+  }
+};
+
+// Show "I have written something for you" message, then reveal the finale after user acknowledges
+function showSpecialMessageThenFinale() {
+  // Create a modal/overlay with the special message
+  const overlay = document.createElement("div");
+  overlay.id = "specialMessageOverlay";
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  `;
+
+  const messageBox = document.createElement("div");
+  messageBox.style.cssText = `
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 60px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    max-width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transform: scale(0.8);
+    transition: transform 0.5s ease;
+  `;
+
+  messageBox.innerHTML = `
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+      I have written something for you 💕
+    </h2>
+    <p style="font-size: 1.3rem; opacity: 0.9; margin-bottom: 30px;">
+      Click anywhere to read it...
+    </p>
+    <p style="font-size: 3rem; animation: pulse 1.5s infinite;">❤️</p>
+  `;
+
+  overlay.appendChild(messageBox);
+  document.body.appendChild(overlay);
+
+  // Add pulse animation
+  const style = document.createElement("style");
+  style.textContent = `
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Fade in
+  requestAnimationFrame(() => {
+    overlay.style.opacity = "1";
+    messageBox.style.transform = "scale(1)";
+  });
+
+  // Click to close and show finale
+  overlay.addEventListener("click", () => {
+    overlay.style.opacity = "0";
+    messageBox.style.transform = "scale(0.8)";
+    setTimeout(() => {
+      overlay.remove();
+      showFinale();
+    }, 500);
+  });
+}
+
+// -------------------------------------------------------------------------
+// Finale view: anniversary letter + YouTube song (opened manually via button)
+// -------------------------------------------------------------------------
+function showFinale() {
+  // Set the letter body (uses white-space: pre-wrap to honor paragraph breaks)
+  const letterEl = document.getElementById("finaleLetter");
+  if (letterEl) letterEl.textContent = finaleLetter.body;
+  showView("finaleView");
+
+  // Hide the header (title and subtitle) when letter is revealed
+  const header = document.getElementById("siteHeader");
+  if (header) header.style.display = "none";
+
+  // Auto-play the song when finale opens
+  setTimeout(() => {
+    playSongInBackground();
+  }, 500);
+}
+
+// Hidden YouTube player for background music
+let youtubePlayer = null;
+let youtubeApiReady = false;
+
+// Callback when YouTube API is ready
+window.onYouTubeIframeAPIReady = function() {
+  youtubeApiReady = true;
+};
+
+function initYouTubePlayer() {
+  if (youtubePlayer) return youtubePlayer;
+  if (!youtubeApiReady || typeof YT === 'undefined') {
+    // Try again after a short delay if API not ready
+    setTimeout(initYouTubePlayer, 200);
+    return null;
+  }
+
+  const playerDiv = document.createElement("div");
+  playerDiv.id = "youtubePlayer";
+  playerDiv.style.cssText = "position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;";
+  document.body.appendChild(playerDiv);
+
+  youtubePlayer = new YT.Player("youtubePlayer", {
+    videoId: FINALE_VIDEO_ID,
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: FINALE_VIDEO_ID,
+      controls: 0,
+      disablekb: 1,
+      fs: 0,
+      modestbranding: 1,
+      rel: 0,
+      enablejsapi: 1
+    },
+    events: {
+      onReady: (event) => {
+        event.target.setVolume(70);
+      }
+    }
+  });
+  return youtubePlayer;
+}
+
+function playSongInBackground() {
+  // Open YouTube in new tab - works reliably
+  window.open("https://www.youtube.com/watch?v=" + FINALE_VIDEO_ID, "_blank", "noopener");
+}
+
+window.closeFinale = function () {
+  showView("mainView");
+};
+
+function showSpecialMention() {
+  // Open the YouTube video directly
+  window.open("https://www.youtube.com/shorts/ZztqS9PEELw", "_blank", "noopener");
+}
+
+window.closeSpecialMention = function () {
+  showView("finaleView");
+};
+
+function openSongOnYouTube() {
+  // Open the song in a new tab so audio definitely plays
+  window.open("https://www.youtube.com/watch?v=" + FINALE_VIDEO_ID, "_blank", "noopener");
+}
+window.openSongOnYouTube = openSongOnYouTube;
+
+// -------------------------------------------------------------------------
+// Physical keyboard
+// -------------------------------------------------------------------------
+document.addEventListener("keydown", (e) => {
+  if (!document.getElementById("gameView").classList.contains("active")) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key;
+  if (k === "Backspace") { handleKey("⌫"); e.preventDefault(); return; }
+  if (k === "Enter")     { handleKey("ENTER"); e.preventDefault(); return; }
+  if (/^[a-zA-Z]$/.test(k)) handleKey(k.toUpperCase());
+});
+
+// -------------------------------------------------------------------------
+// Boot
+// -------------------------------------------------------------------------
+renderCards();
+showView("mainView");
+  </script>
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+</html>
